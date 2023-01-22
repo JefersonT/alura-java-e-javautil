@@ -1,6 +1,8 @@
 package br.com.bytebank.banco.modelo;
 
 
+import java.util.Objects;
+
 /**
  * Classe representa a moldura de uma conta
  * 
@@ -91,10 +93,20 @@ public abstract class Conta extends Object {
     public static int getTotal(){
         return Conta.total;
     }
-    
+
     @Override
 	public String toString() {
 		return "Numero: " + this.numero + ", Agencia: " + this.agencia;
 	}
+
+    @Override
+    public boolean equals(Object ref) {
+        Conta o = (Conta) ref;
+        if (this.agencia != o.agencia) return false;
+
+        if (this.numero != o.numero) return false;
+
+        return true;
+    }
 
 }
