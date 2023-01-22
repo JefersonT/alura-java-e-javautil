@@ -1,5 +1,6 @@
 package br.com.bytebank.banco.test.util;
 
+import br.com.bytebank.banco.modelo.Cliente;
 import br.com.bytebank.banco.modelo.Conta;
 import br.com.bytebank.banco.modelo.ContaCorrente;
 
@@ -7,7 +8,9 @@ import java.util.ArrayList;
 
 public class Teste {
     public static void main(String[] args) {
-        ArrayList lista = new ArrayList();
+
+        //<Conta> São os Generics
+        ArrayList<Conta> lista = new ArrayList();
 
         Conta cc = new ContaCorrente(22, 11);
         lista.add(cc);
@@ -17,20 +20,29 @@ public class Teste {
 
         System.out.println("Tamanho: " + lista.size());
 
+        Conta ref = lista.get(0);
+        System.out.println(ref.getNumero());
+
+        lista.remove(0);
+        System.out.println("Tamanho: " + lista.size());
+
         Conta cc3 = new ContaCorrente(22, 33);
         lista.add(cc3);
 
         Conta cc4 = new ContaCorrente(22, 44);
         lista.add(cc4);
 
+//        Cliente c5 = new Cliente();
+//        lista.add(c5);
+
         for (int i = 0; i < lista.size(); i++){
-            Object oRef = lista.get(i);
+            Conta oRef = lista.get(i);
             System.out.println(oRef);
         }
 
         System.out.println("---------------");
 
-        for (Object oRef : lista){
+        for (Conta oRef : lista){
             System.out.println(oRef);
         }
 
