@@ -3,13 +3,15 @@ package br.com.bytebank.banco.test.util;
 import br.com.bytebank.banco.modelo.Conta;
 import br.com.bytebank.banco.modelo.ContaCorrente;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class TesteArrayList {
     public static void main(String[] args) {
 
         //<Conta> São os Generics
-        ArrayList<Conta> lista = new ArrayList();
+//        List<Conta> lista = new ArrayList(Conta);
+//        List<Conta> lista = new LinkedList<Conta>();
+        List<Conta> lista = new Vector();
 
         Conta cc = new ContaCorrente(22, 11);
         lista.add(cc);
