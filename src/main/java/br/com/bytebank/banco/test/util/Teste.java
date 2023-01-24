@@ -4,12 +4,14 @@ import br.com.bytebank.banco.modelo.Cliente;
 import br.com.bytebank.banco.modelo.Conta;
 import br.com.bytebank.banco.modelo.ContaCorrente;
 import br.com.bytebank.banco.modelo.ContaPoupanca;
+import br.com.bytebank.banco.test.util.comparator.NumeroDaContaComparator;
+import br.com.bytebank.banco.test.util.comparator.TitularDaContaComparator;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class TesteOrderString {
+public class Teste {
     public static void main(String[] args) {
         Conta cc1 = new ContaCorrente(22, 33);
         Cliente clienteCC1 = new Cliente();
@@ -46,15 +48,15 @@ public class TesteOrderString {
             System.out.println(conta + ", " + conta.getTitular().getNome());
         }
 
-//        lista.sort(new TitularDaContaComparator()); //já deixando mais enxuto
+//        lista.sort((c1, c2) -> Integer.compare(c1.getNumero(), c2.getNumero()));
+        lista.sort((c1, c2) -> c1.getTitular().getNome().compareTo(c2.getTitular().getNome())); //já deixando mais enxuto
 
-        Collections.sort(lista);
+//        Collections.sort(lista);
 
         System.out.println("-------------------------");
 
-        for (Conta conta : lista) {
-            System.out.println(conta + ", " + conta.getTitular().getNome());
-        }
+        lista.forEach(conta -> System.out.println(conta + ", " + conta.getTitular().getNome()));
+
 
     }
 }
