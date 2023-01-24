@@ -1,15 +1,15 @@
 package br.com.bytebank.banco.modelo;
 
 
-import java.util.Objects;
-
 /**
  * Classe representa a moldura de uma conta
  * 
  * @author Nico Steppat
  *
  */
-public abstract class Conta extends Object {
+// Comparable necessario para definir uma ordem natura para o objeto da classe,
+// permitindo utilizar Collections.sort(list) sem ser necessário passar um Comparator.
+public abstract class Conta implements Comparable<Conta>{
 
     protected double saldo;
     private int agencia;
@@ -104,9 +104,12 @@ public abstract class Conta extends Object {
         Conta o = (Conta) ref;
         if (this.agencia != o.agencia) return false;
 
-        if (this.numero != o.numero) return false;
-
-        return true;
+        return this.numero == o.numero;
     }
 
+    // Método herdado do Comparable, necessário realizar uma sobreescrita para definir a ordem natural do objeto criado.
+    @Override
+    public int compareTo(Conta o) {
+        return Double.compare(this.saldo, o.saldo);
+    }
 }

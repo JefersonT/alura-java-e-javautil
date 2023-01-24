@@ -10,7 +10,7 @@ public class TesteArrayListEquals {
     public static void main(String[] args) {
 
         //<Conta> São os Generics
-        List<Conta> lista = new ArrayList();
+        List<Conta> lista = new ArrayList<>();
 
         Conta cc1 = new ContaCorrente(22, 22);
         Conta cc2 = new ContaCorrente(22, 22);
