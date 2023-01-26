@@ -1,6 +1,8 @@
 package br.com.bytebank.banco.modelo;
 
 
+import java.io.Serializable;
+
 /**
  * Classe representa a moldura de uma conta
  * 
@@ -9,7 +11,7 @@ package br.com.bytebank.banco.modelo;
  */
 // Comparable necessario para definir uma ordem natura para o objeto da classe,
 // permitindo utilizar Collections.sort(list) sem ser necessário passar um Comparator.
-public abstract class Conta implements Comparable<Conta>{
+public abstract class Conta implements Comparable<Conta>, Serializable {
 
     protected double saldo;
     private int agencia;
